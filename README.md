@@ -1,7 +1,7 @@
 # DeepMF
 Matlab Library for Deep Matrix Factorization models with data clustering.
 
-##  List of the algorithms available in NMFLibrary 
+##  List of the algorithms available in DeepMF
 
 - DGsnMF
   - H. Huang, Z. Yang, Z. Li and W. Sun, "[Deep Graph semi-NMF algorithm and its convergence](https://github.com/libertyhhn/libertyhhn.github.io/blob/master/publications/20%20Deep%20Graph%20semi-NMF%20algorithm%20and%20its%20convergence.pdf)," submitted to Neurocomputing, 2020.
