@@ -1,18 +1,18 @@
 % Deep Matrix Factorization Clustering performance on jaffe dataset
+% 
 % four methods:
 %             DGsnMF, Haonan Huang, 2020 
 %             Deep nsNMF, Jinshi Yu, 2018 
 %             Deep SemiNMF, George Trigeorgis, 2017
 %             Deep SemiNMF nonlinear, George Trigeorgis, 2017 
 %
-% jaffe dataset
 % 
-% Reference:
+% jaffe dataset Reference:
 %       M. Lyons, S. Akamatsu, M. Kamachi, and J. Gyoba,
 %       "Coding facial expressions with gabor wavelets,"
 %       In Proc. Third IEEE ICAFGR, Nara, Japan, Apr. 1998, pp. 200-205  
-
-
+% 
+% Created by Haonan Huang, 2020 
 clear;
 addpath(genpath('../DeepMF'));
 load('jaffe.mat');
@@ -37,7 +37,7 @@ fea = NormalizeFea(fea);
 [ AC, MIhat ] = evalResults(H, gnd );
 disp(['Clustering in the DGsnMF .AC/MI/time(', num2str(nClass), '): ' num2str(AC), '/', num2str(MIhat),'/',num2str(time)]);
 
-%% Clustering in the Deep nsNMF nonlinear subspace
+%% Clustering in the Deep nsNMF subspace
  rand('twister',5489);
  tic;
  [Z, H] = deep_nsnmf(fea', [f_layers_r  s_layers_r]);

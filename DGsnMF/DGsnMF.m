@@ -1,4 +1,4 @@
-% Title   : "Deep Graph semi-NMF algorithm and its convergence",2020. 
+% Title   : "Deep Graph semi-NMF algorithm and its convergence",submitted to Neurocomputing, 2020. 
 % Authors : Haonan Huang
 % Affl.   : Guangdong University of Technology, Guangzhou, China
 % Email   : libertyhhn@foxmail.com
@@ -15,13 +15,13 @@ function [ Z, H_err] = DGsnMF( X, layers,varargin )
 % The problem of interest is defined as
 %
 %           min || X - Z_{1}...Z_{l}H_{l} ||_F^2 + Tr((H_{l})^{T}LH_{l}),
-%                                          s.t. H_{l} > 0
-%           where l denotes the lth of layer , L denotes the graph matrix 
+%                                                          s.t. H_{l} > 0
+%           where l denotes the l-th of layer , L denotes the graph matrix,Tr denotes the trace 
 %           .
 % Inputs: 
 %       X         : (m x n)  matrix to factorize
 %       layers    : [1st 2nd 3th ...] layers sizes
-%       varargin  : maxiter,lambdas,... parameters
+%       varargin  : maxiter,lambdas,...
 %
 % Outputs:
 %        Z     : each layer weighted matrix
@@ -52,7 +52,6 @@ dflts  = {0, 0, 1000, 1e-5, 1,1,1e-3};
 if  ~iscell(h0)
     for i_layer = 1:length(layers)
         if i_layer == 1
-            % For the first layer we go linear from X to Z*H, so we use id
             V = X;
         else 
             V = H{i_layer-1};
@@ -63,7 +62,7 @@ if  ~iscell(h0)
                 i_layer, layers(i_layer), mat2str(size(V))));
         end
         
-        %construct graph matrix 
+        %construct graph laplacian matrix 
         options = [];
         options.WeightMode = 'Binary'; 
         options.k = 10;
@@ -111,13 +110,12 @@ H_err = cell(1, num_of_layers);
     end   
 tStart=tic;
 for iter = 1:maxiter  
- 
     for i = 1:numel(layers)
         if i == 1
-            HVt=H_err{1}*X'; HHt=H_err{1}*H_err{1}';
+            HVt=H_err{1}*X'; HHt=H_err{1}*H_err{1}';   % Optimize Z{1} with H fixed
             Z{i} = Ne_NNLS(Z{i},HHt,HVt);
         else
-            VHt = X*H_err{i}'; HHt=H_err{i}*H_err{i}';
+            VHt = X*H_err{i}'; HHt=H_err{i}*H_err{i}'; % Optimize Z{l} with H fixed
             Z{i} = Ne_i_NNLS(Z{i},HHt,VHt,D);
         end
         
@@ -129,7 +127,7 @@ for iter = 1:maxiter
         
         if i == numel(layers)
             WtV=D'*X; WtW=D'*D;
-            [H{i}]=NNLS_MR(H{i},WtW,WtV,beta,L{i},LpC{i});     %Optimize H with W fixed
+            [H{i}]=NNLS_MR(H{i},WtW,WtV,beta,L{i},LpC{i});  % Optimize H with Z fixed
         end
     end
     

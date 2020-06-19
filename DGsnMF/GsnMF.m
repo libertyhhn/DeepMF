@@ -1,5 +1,30 @@
 function [  W, H, F_obj ] = GsnMF( V, r,maxiter, err_rat, Lp,LpC)
- % code by Haonan Huang, 2020
+%  Graph semi non-negative Matrix Factorization (GsnMF)
+%  It should be noted that GsnMF is single layer version of DGsnMF. 
+%  Forward-backward splitting approach is developed to deal with the DGsnMF and GsnMF.
+% 
+% The problem of interest is defined as
+%
+%           min || V - WH ||_F^2 +Tr(HLH^T),
+%                              s.t. Z_{i}, S_{i}, H_{m} > 0.
+%           where 
+%                 Tr denotes the trace  
+% 
+% Inputs: 
+%       V        : (m x n)  matrix to factorize
+%       r        : num_of_components
+%       err_rat  : stop error
+%       Lp       : graph laplacian matrix  
+%       LpC      : the F-norm of graph laplacian matrix
+% 
+% 
+% Outputs:
+%        W   : weighted matrix
+%        H   : feature matrix 
+%      F_obj : objective values
+% 
+%  code by Haonan Huang, 2020
+%  E-mail: libertyhhn@foxmail.com
  H = rand(r, size(V, 2)); 
  W = V * pinv(H);
 

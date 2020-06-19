@@ -15,7 +15,9 @@ function [ Z, H, dnorm, R ] = deep_seminmf_nonlinear ( X, layers, varargin )
 %
 % Outputs:
 %        Z     : each layer weighted matrix
-%        H_err : final feature matrix
+%        H     : final feature matrix
+%        dnorm : objective value
+%        R     : 
 % 
 % Reference:
 %       George Trigeorgis, Konstantinos Bousmalis, Stefanos Zafeiriou, Bjoern W. Schuller,
@@ -84,7 +86,7 @@ if ~iscell(z0) && ~iscell(h0)
             V = g(H{i_layer-1} ./ R{i_layer});
         end
                
-        display(sprintf('Initialising Layer #%d...', i_layer));
+        fprintf('Initialising Layer #%d...\n', i_layer);
     
         % For the later layers we use nonlinearities as we go from
         % g(H_{k-1}) to Z*H_k
@@ -98,20 +100,20 @@ else
     Z=z0;
     H=h0;
     
-    display('Skipping initialization, using provided init matrices...');
+    disp('Skipping initialization, using provided init matrices...');
 end
 
 dnorm0 = norm(X - deep_recon(Z, H, R, g_inv), 'fro');
 dnorm = dnorm0;
 
-display(sprintf('#%d error: %f', 0, dnorm0));
+fprintf('#%d error: %f\n', 0, dnorm0);
 
 for i = 1:numel(layers)
     display(sprintf('R[%d] = %f', i, R{i}));
 end
 
 %% Error Propagation
-display('Finetuning...');
+disp('Finetuning...');
 
 for iter = 1:maxiter  
     for i = numel(layers):-1:1        
@@ -187,10 +189,7 @@ for iter = 1:maxiter
     dnorm0 = dnorm;
 end
 
-
-
 end
-
 
 function [Z, dnorm1] = gd_Z(X, Z, H, R, c, i, g_inv, dnorm)
     eta = 0.01;
