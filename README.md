@@ -11,5 +11,5 @@ data representation]," submitted to Circuits, Systems, and Signal Processing, 20
   - J. Yu, G. Zhou, A. Cichocki, and S. Xie, "[Learning the Hierarchical Parts of Objects by Deep Non-Smooth Nonnegative Matrix Factorization](https://arxiv.org/abs/1803.07226)," IEEE Access, 2018.
     
 - Deep Semi-NMF
-  - J. Yu, G. Zhou, A. Cichocki, and S. Xie, "[A Deep Matrix Factorization Method for Learning Attribute Representations](https://ieeexplore.ieee.org/document/7453156)," IEEE TPAMI, 2017.
+  - G. Trigeorgis, K. Bousmalis, S. Zafeiriou, B. W. Schuller, "[A Deep Matrix Factorization Method for Learning Attribute Representations](https://ieeexplore.ieee.org/document/7453156)," IEEE TPAMI, 2017.
   
