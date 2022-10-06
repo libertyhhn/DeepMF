@@ -16,13 +16,13 @@ data representation](https://link.springer.com/article/10.1007/s00034-021-01833-
 ### Citation
 If you find this algorithm useful in your research, please consider citing:
 
-  @article{huang2022converged,
-    title={A converged deep graph semi-nmf algorithm for learning data representation},
-    author={Huang, Haonan and Yang, Zuyuan and Li, Zhenni and Sun, Weijun},
-    journal={Circuits, Systems, and Signal Processing},
-    volume={41},
-    number={2},
-    pages={1146--1165},
-    year={2022},
-    publisher={Springer}
-  }
+    @article{huang2022converged,
+      title={A converged deep graph semi-nmf algorithm for learning data representation},
+      author={Huang, Haonan and Yang, Zuyuan and Li, Zhenni and Sun, Weijun},
+      journal={Circuits, Systems, and Signal Processing},
+      volume={41},
+      number={2},
+      pages={1146--1165},
+      year={2022},
+      publisher={Springer}
+    }
