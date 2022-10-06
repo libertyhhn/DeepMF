@@ -13,3 +13,16 @@ data representation](https://link.springer.com/article/10.1007/s00034-021-01833-
 - Deep Semi-NMF
   - G. Trigeorgis, K. Bousmalis, S. Zafeiriou, B. W. Schuller, "[A Deep Matrix Factorization Method for Learning Attribute Representations](https://ieeexplore.ieee.org/document/7453156)," IEEE TPAMI, 2017.
   
+### Citation
+If you find this algorithm useful in your research, please consider citing:
+
+  @article{huang2022converged,
+    title={A converged deep graph semi-nmf algorithm for learning data representation},
+    author={Huang, Haonan and Yang, Zuyuan and Li, Zhenni and Sun, Weijun},
+    journal={Circuits, Systems, and Signal Processing},
+    volume={41},
+    number={2},
+    pages={1146--1165},
+    year={2022},
+    publisher={Springer}
+  }
