@@ -5,7 +5,7 @@ Matlab Library for Deep Matrix Factorization models with data clustering.
 
 - DGsnMF
   - H. Huang, Z. Yang, Z. Li and W. Sun, "[A converged Deep Graph semi-NMF algorithm for learning
-data representation]," Circuits, Systems, and Signal Processing, 2022.
+data representation](https://link.springer.com/article/10.1007/s00034-021-01833-3)," Circuits, Systems, and Signal Processing, 2022.
   
 - Deep nsNMF
   - J. Yu, G. Zhou, A. Cichocki, and S. Xie, "[Learning the Hierarchical Parts of Objects by Deep Non-Smooth Nonnegative Matrix Factorization](https://arxiv.org/abs/1803.07226)," IEEE Access, 2018.
